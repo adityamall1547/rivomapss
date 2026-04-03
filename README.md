@@ -1,4 +1,4 @@
-# SensorySafe Backend Setup
+
 
 ## Quick Start
 
