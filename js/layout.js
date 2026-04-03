@@ -44,21 +44,6 @@ function initHeader() {
         });
     }
 
-    // Attach login button handler after header is loaded
-    const headerLoginBtn = document.getElementById('headerLoginBtn');
-    if (headerLoginBtn) {
-        headerLoginBtn.addEventListener('click', function() {
-            const loginModal = document.getElementById('loginModal');
-            const registerModal = document.getElementById('registerModal');
-            const resetModal = document.getElementById('resetModal');
-            
-            if (loginModal) {
-                if (registerModal) registerModal.classList.add('hidden');
-                if (resetModal) resetModal.classList.add('hidden');
-                loginModal.classList.remove('hidden');
-            }
-        });
-    }
 }
 
 function initFooter() {
