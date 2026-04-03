@@ -24,6 +24,7 @@ class AIUnderstandingEngine {
       SET_DESTINATION: { patterns: ['go to', 'navigate to', 'take me to', 'directions to', 'route to', 'heading to'], priority: 9 },
       GET_ROUTE: { patterns: ['route', 'directions', 'how do i get', 'way to', 'path to', 'show route'], priority: 8 },
       GET_COMFORT: { patterns: ['comfort level', 'sensory', 'how comfortable', 'stress level', 'noise', 'crowd'], priority: 7 },
+      GET_BENEFITS: { patterns: ['benefits', 'why rivo', 'why should i use rivo', 'advantages', 'why use this app'], priority: 7 },
       CHECK_TIME: { patterns: ['how long', 'time', 'duration', 'arrive', 'eta'], priority: 6 },
       HELP: { patterns: ['help', 'what can you do', 'commands', 'guide', 'how to'], priority: 5 },
       START_NAV: { patterns: ['start', 'begin', 'navigate', 'let\'s go', 'start navigation'], priority: 8 },
@@ -294,6 +295,11 @@ class AIUnderstandingEngine {
         data = { comfort: comfortLevel };
         break;
 
+      case 'GET_BENEFITS':
+        message = `🌟 Benefits of using Rivo:\n• Sensory-friendly routes that avoid noise and crowds\n• Comfort-first navigation, not just fastest paths\n• Live community reports for noise, crowding, and construction\n• More predictable, less stressful travel for autistic and sensory-sensitive users\n• Personalized preferences (comfort vs speed) for each trip`;
+        action = 'ANSWER';
+        break;
+
       case 'START_NAV':
         if (this.userPreferences.destination) {
           message = `🚀 Starting navigation to ${this.userPreferences.destination.name || 'destination'}! Follow the route...`;
@@ -402,6 +408,10 @@ class AIUnderstandingEngine {
     
     if (lowerMsg.includes('can') || lowerMsg.includes('do')) {
       return '✨ I can:\n• Find quiet, sensory-friendly routes\n• Calculate travel time\n• Show step-by-step directions\n• Help you avoid noisy areas\n• Provide comfort ratings\n\nTry "Help" for specific commands!';
+    }
+
+    if (lowerMsg.includes('benefit') || lowerMsg.includes('advantage') || (lowerMsg.includes('why') && lowerMsg.includes('rivo'))) {
+      return '🌟 Rivo helps you travel with less sensory overload by avoiding noisy and crowded routes, using community alerts, and prioritizing comfort over only speed.';
     }
     
     if (lowerMsg.includes('comfort')) {

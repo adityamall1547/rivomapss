@@ -171,6 +171,12 @@ Base URL: `http://localhost:3000`
 4. Confirm markers appear on the map and report count updates.
 5. Reload the page to verify report fetch from `/api/reports`.
 
+<<<<<<< HEAD
 ## License
 
 ISC (see `package.json`).
+=======
+
+
+ISC (see `package.json
+>>>>>>> b11b250ace2470ef107bb4b2e9ca23d2bc3910fc
